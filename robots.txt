@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alessandromemmola.com/sitemap.xml
+
+# Blocco crawler inutili o aggressivi (opzionale ma consigliato)
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
