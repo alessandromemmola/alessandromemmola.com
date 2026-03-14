@@ -1,4 +1,4 @@
-# Memmola Lab di Alessandro Memmola – Sviluppatore & Creatore
+# Memmola Labs® di Alessandro Memmola – Sviluppatore & Creatore
 
 Portfolio personale, vetrina di progetti web, tool utili e idee creative.
 
