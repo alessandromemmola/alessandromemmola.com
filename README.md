@@ -25,6 +25,7 @@ Portfolio personale, vetrina di progetti web, tool utili e idee creative.
 - 🐦 X: [@alexmemmola](https://x.com/alexmemmola)
 - 🐙 GitHub: [alessandromemmola](https://github.com/alessandromemmola)
 - 📧 Email: info@alessandromemmola.com
+  Producthunt: [alessandromemmola](https://www.producthunt.com/@alessandromemmola)
 
 ## Supporta i miei progetti
 
