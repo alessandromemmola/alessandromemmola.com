@@ -6,224 +6,71 @@
     <title>Alessandro Memmola – Sviluppatore & Creatore</title>
     <meta name="description" content="Alessandro Memmola – sviluppatore web/app, creator di tool utili e progetti creativi. Scopri il portfolio, i progetti open source e come contattarmi.">
     <meta name="robots" content="index, follow">
-    
-    <!-- Favicon -->
     <link rel="icon" href="/favicon.jpg" type="image/jpeg">
-
-    <!-- Eventuale apple-touch-icon per dispositivi mobili -->
     <link rel="apple-touch-icon" href="/images/favicon.jpg">
-
     <link rel="canonical" href="https://alessandromemmola.com/">
-
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #0d1117;
-            color: #e6edf3;
-            line-height: 1.6;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
         header {
-            position: relative;
-            height: 75vh;
-            min-height: 500px;
+            position: relative; height: 75vh; min-height: 500px;
             background: url('images/immagine-copertina.jpg') no-repeat center center;
-            background-size: cover;
+            background-size: cover; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white;
+        }
+        header::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 1; }
+        .header-content { position: relative; z-index: 2; max-width: 1000px; padding: 20px; }
+        .header-content h1 { font-size: 5.8rem; font-weight: 900; letter-spacing: -2.5px; text-shadow: 0 8px 25px rgba(0,0,0,0.9); margin-bottom: 0.15em; line-height: 0.95; }
+        .header-content p { font-size: 1.85rem; font-weight: 400; opacity: 0.92; text-shadow: 0 4px 16px rgba(0,0,0,0.85); max-width: 800px; margin: 0 auto; }
+        .header-sponsor { position: absolute; top: 20px; right: 20px; z-index: 3; }
+        .mini-btn { display: inline-block; padding: 8px 20px; background: #ea4aaa; color: white; font-size: 1rem; font-weight: 600; border-radius: 30px; text-decoration: none; box-shadow: 0 3px 10px rgba(234,74,170,0.25); transition: all 0.2s; }
+        .mini-btn:hover { background: #f06292; transform: translateY(-2px); box-shadow: 0 5px 14px rgba(234,74,170,0.35); }
+        .profile-img { position: absolute; top: 20px; left: 20px; width: 64px; height: 64px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.2); box-shadow: 0 3px 12px rgba(0,0,0,0.5); z-index: 3; object-fit: cover; }
+        .container { max-width: 1100px; margin: 80px auto; padding: 0 30px; }
+        h2 { color: #58a6ff; font-size: 2.6rem; margin: 2.5em 0 1em; border-bottom: 2px solid #30363d; padding-bottom: 0.4em; display: inline-block; }
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; margin: 2.5em 0; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 14px; padding: 32px; transition: all 0.28s ease; }
+        .card:hover { transform: translateY(-8px); border-color: #58a6ff; box-shadow: 0 14px 36px rgba(88,166,255,0.18); }
+        .btn { display: inline-block; padding: 14px 34px; background: #238636; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 18px; transition: background 0.25s; }
+        .btn:hover { background: #2ea043; }
+
+        /* Support section */
+        .support { text-align: center; margin: 120px 0 80px; }
+        .support p { color: #8b949e; margin-bottom: 32px; font-size: 1.05rem; }
+        .support-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .support-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
+            gap: 16px;
+            flex-wrap: wrap;
         }
-
-        header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.55);
-            z-index: 1;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1000px;
-            padding: 20px;
-        }
-
-        .header-content h1 {
-            font-size: 5.8rem;
-            font-weight: 900;
-            letter-spacing: -2.5px;
-            text-shadow: 0 8px 25px rgba(0,0,0,0.9);
-            margin-bottom: 0.15em;
-            line-height: 0.95;
-        }
-
-        .header-content p {
-            font-size: 1.85rem;
-            font-weight: 400;
-            opacity: 0.92;
-            text-shadow: 0 4px 16px rgba(0,0,0,0.85);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .header-sponsor {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 3;
-        }
-
-        .mini-btn {
-            display: inline-block;
-            padding: 8px 20px;
-            background: #ea4aaa;
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(234,74,170,0.25);
-            transition: all 0.2s;
-        }
-
-        .mini-btn:hover {
-            background: #f06292;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 14px rgba(234,74,170,0.35);
-        }
-
-        .profile-img {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            border: 3px solid rgba(255,255,255,0.2);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.5);
-            z-index: 3;
-            object-fit: cover;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 80px auto;
-            padding: 0 30px;
-        }
-
-        h2 {
-            color: #58a6ff;
-            font-size: 2.6rem;
-            margin: 2.5em 0 1em;
-            border-bottom: 2px solid #30363d;
-            padding-bottom: 0.4em;
-            display: inline-block;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-            margin: 2.5em 0;
-        }
-
-        .card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 14px;
-            padding: 32px;
-            transition: all 0.28s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #58a6ff;
-            box-shadow: 0 14px 36px rgba(88,166,255,0.18);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 34px;
-            background: #238636;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 18px;
-            transition: background 0.25s;
-        }
-
-        .btn:hover {
-            background: #2ea043;
-        }
-
-        .support {
-            text-align: center;
-            margin: 120px 0 80px;
-        }
-
-        .support .btn {
-            background: #ea4aaa;
-            font-size: 1.35rem;
-            padding: 20px 52px;
-        }
-
-        .support .btn:hover {
-            background: #f06292;
-        }
-
-        footer {
-            text-align: center;
-            padding: 80px 20px 50px;
-            color: #8b949e;
-            font-size: 0.98rem;
-            border-top: 1px solid #21262d;
-        }
-
-        footer a {
-            color: #58a6ff;
-            text-decoration: none;
-            margin: 0 8px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-trademark {
-            margin-top: 12px;
-            font-size: 0.88rem;
+        .support-label {
+            font-size: 0.85rem;
             color: #6e7681;
+            text-align: center;
+            margin-top: 4px;
         }
+        /* PayPal form button */
+        .paypal-form { display: inline-flex; align-items: center; }
+        .paypal-form input[type=image] { border: none; cursor: pointer; }
+
+        footer { text-align: center; padding: 80px 20px 50px; color: #8b949e; font-size: 0.98rem; border-top: 1px solid #21262d; }
+        footer a { color: #58a6ff; text-decoration: none; margin: 0 8px; }
+        footer a:hover { text-decoration: underline; }
+        .footer-trademark { margin-top: 12px; font-size: 0.88rem; color: #6e7681; }
 
         @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 4.2rem;
-            }
-            .header-content p {
-                font-size: 1.45rem;
-            }
-            header {
-                height: 65vh;
-                min-height: 420px;
-            }
-            .profile-img {
-                width: 50px;
-                height: 50px;
-            }
-            .mini-btn {
-                padding: 6px 16px;
-                font-size: 0.95rem;
-            }
+            .header-content h1 { font-size: 4.2rem; }
+            .header-content p { font-size: 1.45rem; }
+            header { height: 65vh; min-height: 420px; }
+            .profile-img { width: 50px; height: 50px; }
+            .mini-btn { padding: 6px 16px; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -231,11 +78,9 @@
 
 <header>
     <img class="profile-img" src="images/foto-profilo.jpg" alt="Alessandro Memmola">
-
     <div class="header-sponsor">
-        <a href="https://paypal.me/onlycreator" target="_blank" class="mini-btn">Sponsor ❤️</a>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL" target="_blank" class="mini-btn">Sponsor ❤️</a>
     </div>
-
     <div class="header-content">
         <h1>Alessandro Memmola</h1>
         <p>Sviluppatore · Creatore di tool utili e progetti creativi</p>
@@ -259,40 +104,58 @@
                 <h3>AskingStars</h3>
                 <p>Oroscopo interattivo e ironico: chiedi alle stelle o alla cartomante risposte divertenti e personalizzate.</p>
                 <a href="https://askingstars.com" class="btn" target="_blank">Visita il sito</a>
-                <h3>AskingStars-Widget</h3>
-                <p>Il widget embeddabile dell'oroscopo interattivo e ironico: chiedi alle stelle o alla cartomante risposte divertenti e personalizzate. Provalo subito nel tuo sito.</p>
+                <h3 style="margin-top:24px;">AskingStars-Widget</h3>
+                <p>Il widget embeddabile dell'oroscopo interattivo e ironico. Provalo subito nel tuo sito.</p>
                 <a href="https://askingstars.com/widget-demo.html" class="btn" target="_blank">Vai al widget</a>
             </div>
-     
-            <div class="card"> 
+            <div class="card">
                 <h3>Reindexme</h3>
-                <p>Hai aggiornato il tuo profilo Linkedin ma i motori di ricerca mostrano ancora la vecchia posizione? Questo tool invia segnali di re-indicizzazione per accelerare l'aggiornamento.</p>
+                <p>Hai aggiornato il tuo profilo LinkedIn ma i motori di ricerca mostrano ancora la vecchia posizione? Questo tool invia segnali di re-indicizzazione per accelerare l'aggiornamento.</p>
                 <a href="https://reindexme.com" class="btn" target="_blank">Visita il sito</a>
-                <h3>Reindexme-Widget</h3>
-                <p>Il widget embeddabile del tool che invia segnali di re-indicizzazione per accelerare l'aggiornamento dei motori di ricerca al tuo profilo Linkedin. Provalo subito nel tuo sito.</p>
+                <h3 style="margin-top:24px;">Reindexme-Widget</h3>
+                <p>Il widget embeddabile del tool che invia segnali di re-indicizzazione. Provalo subito nel tuo sito.</p>
                 <a href="https://reindexme.com/widget-demo.html" class="btn" target="_blank">Vai al widget</a>
             </div>
         </div>
     </section>
-        
+
     <section class="support">
         <h2>Supportami</h2>
         <p>Se i miei progetti ti piacciono o ti sono utili, un piccolo supporto mi aiuta a crearne altri!</p>
-        <a href="https://paypal.me/onlycreator" target="_blank" class="btn">
-            Sponsor on PayPal ❤️
-        </a>
+
+        <!-- GitHub Sponsors card — main -->
+        <iframe src="https://github.com/sponsors/alessandromemmola/card" title="Sponsor alessandromemmola" height="225" width="600" style="border:0;max-width:100%;border-radius:8px;"></iframe>
+
+        <div class="support-buttons" style="margin-top: 24px;">
+            <div class="support-row">
+                <!-- GitHub Sponsors button -->
+                <div>
+                    <iframe src="https://github.com/sponsors/alessandromemmola/button" title="Sponsor alessandromemmola" height="32" width="114" style="border:0;border-radius:6px;display:block;"></iframe>
+                    <p class="support-label">GitHub Sponsors</p>
+                </div>
+                <!-- PayPal donate button -->
+                <div>
+                    <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal-form">
+                        <input type="hidden" name="hosted_button_id" value="BDKSZVWFYY5ZL" />
+                        <input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Dona con PayPal" style="height:32px;" />
+                        <img alt="" border="0" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1" />
+                    </form>
+                    <p class="support-label">PayPal</p>
+                </div>
+            </div>
+        </div>
     </section>
-        
+
 </div>
 
 <footer>
-    <p>© 2026 Alessandro Memmola · 
+    <p>© 2026 Alessandro Memmola ·
        Tutti i diritti riservati | Nessun tracciamento personale o cookie di profilazione
        <a href="/licenza.html" target="_blank" style="color:#8b949e; text-decoration:none; font-size:0.95em;" title="Leggi la licenza d'uso">📜</a> ·
-       <a href="mailto:info@alessandromemmola.com">info@alessandromemmola.com</a> · 
+       <a href="mailto:info@alessandromemmola.com">info@alessandromemmola.com</a> ·
        <a href="https://github.com/alessandromemmola" target="_blank">GitHub</a> ·
-       <a href="https://www.producthunt.com/@alessandromemmola">Producthunt</a> · 
-       <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/" target="_blank">LinkedIn</a> · 
+       <a href="https://www.producthunt.com/@alessandromemmola">Product Hunt</a> ·
+       <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/" target="_blank">LinkedIn</a> ·
        <a href="https://x.com/MemmolaLabs" target="_blank">X</a>
     </p>
     <p class="footer-trademark">Memmola Labs® è un marchio di Alessandro Memmola</p>
