@@ -1,161 +1,955 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alessandro Memmola – Sviluppatore & Creatore</title>
-    <meta name="description" content="Alessandro Memmola – sviluppatore web/app, creator di tool utili e progetti creativi. Scopri il portfolio, i progetti open source e come contattarmi.">
-    <meta name="robots" content="index, follow">
-    <link rel="icon" href="/favicon.jpg" type="image/jpeg">
-    <link rel="apple-touch-icon" href="/images/favicon.jpg">
-    <link rel="canonical" href="https://alessandromemmola.com/">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
-        header {
-            position: relative; height: 75vh; min-height: 500px;
-            background: url('images/immagine-copertina.jpg') no-repeat center center;
-            background-size: cover; display: flex; align-items: center; justify-content: center;
-            text-align: center; color: white;
-        }
-        header::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 1; }
-        .header-content { position: relative; z-index: 2; max-width: 1000px; padding: 20px; }
-        .header-content h1 { font-size: 5.8rem; font-weight: 900; letter-spacing: -2.5px; text-shadow: 0 8px 25px rgba(0,0,0,0.9); margin-bottom: 0.15em; line-height: 0.95; }
-        .header-content p { font-size: 1.85rem; font-weight: 400; opacity: 0.92; text-shadow: 0 4px 16px rgba(0,0,0,0.85); max-width: 800px; margin: 0 auto; }
-        .header-sponsor { position: absolute; top: 20px; right: 20px; z-index: 3; }
-        .mini-btn { display: inline-block; padding: 8px 20px; background: #ea4aaa; color: white; font-size: 1rem; font-weight: 600; border-radius: 30px; text-decoration: none; box-shadow: 0 3px 10px rgba(234,74,170,0.25); transition: all 0.2s; }
-        .mini-btn:hover { background: #f06292; transform: translateY(-2px); box-shadow: 0 5px 14px rgba(234,74,170,0.35); }
-        .profile-img { position: absolute; top: 20px; left: 20px; width: 64px; height: 64px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.2); box-shadow: 0 3px 12px rgba(0,0,0,0.5); z-index: 3; object-fit: cover; }
-        .container { max-width: 1100px; margin: 80px auto; padding: 0 30px; }
-        h2 { color: #58a6ff; font-size: 2.6rem; margin: 2.5em 0 1em; border-bottom: 2px solid #30363d; padding-bottom: 0.4em; display: inline-block; }
-        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; margin: 2.5em 0; }
-        .card { background: #161b22; border: 1px solid #30363d; border-radius: 14px; padding: 32px; transition: all 0.28s ease; }
-        .card:hover { transform: translateY(-8px); border-color: #58a6ff; box-shadow: 0 14px 36px rgba(88,166,255,0.18); }
-        .btn { display: inline-block; padding: 14px 34px; background: #238636; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 18px; transition: background 0.25s; }
-        .btn:hover { background: #2ea043; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alessandro Memmola — sviluppatore indipendente, fondatore di Memmola Labs®. Costruisco tool web gratuiti e app mobile dal garage." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://alessandromemmola.com/" />
+  <title>Alessandro Memmola — Sviluppatore Indipendente</title>
 
-        /* Support section */
-        .support { text-align: center; margin: 120px 0 80px; }
-        .support p { color: #8b949e; margin-bottom: 32px; font-size: 1.05rem; }
-        .support-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        .support-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .support-label {
-            font-size: 0.85rem;
-            color: #6e7681;
-            text-align: center;
-            margin-top: 4px;
-        }
-        /* PayPal form button */
-        .paypal-form { display: inline-flex; align-items: center; }
-        .paypal-form input[type=image] { border: none; cursor: pointer; }
+  <meta property="og:title" content="Alessandro Memmola — Sviluppatore Indipendente" />
+  <meta property="og:description" content="Fondatore di Memmola Labs®. Costruisco tool gratuiti e app mobile." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.jpg" type="image/jpeg" />
 
-        footer { text-align: center; padding: 80px 20px 50px; color: #8b949e; font-size: 0.98rem; border-top: 1px solid #21262d; }
-        footer a { color: #58a6ff; text-decoration: none; margin: 0 8px; }
-        footer a:hover { text-decoration: underline; }
-        .footer-trademark { margin-top: 12px; font-size: 0.88rem; color: #6e7681; }
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-        @media (max-width: 768px) {
-            .header-content h1 { font-size: 4.2rem; }
-            .header-content p { font-size: 1.45rem; }
-            header { height: 65vh; min-height: 420px; }
-            .profile-img { width: 50px; height: 50px; }
-            .mini-btn { padding: 6px 16px; font-size: 0.95rem; }
-        }
-    </style>
+  <style>
+    :root {
+      --bg:       #f5f0e8;
+      --bg2:      #ede8dc;
+      --ink:      #1a1510;
+      --ink2:     #3d3528;
+      --muted:    #8c7e6a;
+      --accent:   #c8391a;
+      --accent2:  #e8520a;
+      --border:   #d4c9b4;
+      --surface:  #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* ── HEADER BAR ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .header-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .header-nav {
+      display: flex; gap: 32px; align-items: center;
+    }
+
+    .header-nav a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover { color: var(--accent); }
+
+    .header-nav .nav-cta {
+      background: var(--ink);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+    }
+
+    .header-nav .nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-left {
+      padding: 80px 48px 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .hero-kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .hero-kicker::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--ink2);
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 480px;
+      margin-top: 28px;
+    }
+
+    .hero-bio strong { font-weight: 600; color: var(--ink); }
+
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .btn-solid {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+
+    .btn-solid:hover { background: var(--accent); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--ink2);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+    /* Social strip */
+    .hero-social {
+      display: flex; gap: 20px; align-items: center;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .social-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .social-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover { color: var(--accent); }
+
+    /* ── HERO RIGHT — big editorial column ── */
+    .hero-right {
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: 'AM';
+      position: absolute;
+      top: -40px; right: -20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 28rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--ink2);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 32px;
+      max-height: 420px;
+    }
+
+    .hero-photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .hero-photo-placeholder .photo-fallback {
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.08);
+    }
+
+    .hero-right-caption {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.8;
+    }
+
+    .hero-right-caption strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 4px;
+      text-transform: none;
+    }
+
+    /* ── MANIFESTO STRIP ── */
+    .manifesto {
+      background: var(--accent);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      overflow: hidden;
+    }
+
+    .manifesto-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.95);
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .manifesto-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-sidebar {
+      padding: 80px 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    .about-sidebar-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .about-sidebar-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .about-content {
+      padding: 80px 64px;
+    }
+
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .about-content h2 em { font-style: italic; color: var(--accent); }
+
+    .about-content p {
+      font-size: 1rem;
+      color: var(--ink2);
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    .about-content p strong { font-weight: 600; color: var(--ink); }
+
+    /* Skills chips */
+    .skills {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .skill-chip {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--ink2);
+      background: var(--surface);
+    }
+
+    /* ── PROJECTS SECTION ── */
+    .projects-section {
+      padding: 100px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .section-header-link {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .section-header-link:hover { text-decoration: underline; }
+
+    /* Project list — editorial style */
+    .project-list { display: flex; flex-direction: column; gap: 0; }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 32px;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+
+    .project-row:hover { background: rgba(200,57,26,0.03); }
+    .project-row:hover .project-row-name { color: var(--accent); }
+    .project-row:hover .project-row-arrow { opacity: 1; transform: translateX(4px); }
+
+    .project-row-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+    }
+
+    .project-row-body {}
+
+    .project-row-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-row-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
+      margin-bottom: 6px;
+    }
+
+    .project-row-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 560px;
+    }
+
+    .project-row-arrow {
+      font-size: 1.5rem;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    /* Status badge */
+    .status-live {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: #1a7a3a;
+      background: rgba(26,122,58,0.1);
+      border: 1px solid rgba(26,122,58,0.2);
+      padding: 3px 10px; border-radius: 100px;
+    }
+
+    .status-live::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: #1a7a3a;
+      border-radius: 50%;
+    }
+
+    .status-soon {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(200,57,26,0.08);
+      border: 1px solid rgba(200,57,26,0.2);
+      padding: 3px 10px; border-radius: 100px;
+    }
+
+    /* ── CONTACT SECTION ── */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 50vh;
+    }
+
+    .contact-left {
+      padding: 80px 48px;
+      background: var(--ink);
+      color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .contact-left h2 em { font-style: italic; color: var(--accent2); }
+
+    .contact-left p {
+      font-size: 1rem;
+      color: rgba(245,240,232,0.6);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 400px;
+      margin-bottom: 36px;
+    }
+
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,82,10,0.4);
+      padding-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-email:hover { border-color: var(--accent2); }
+
+    .contact-right {
+      padding: 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid var(--border);
+    }
+
+    .contact-right h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--ink);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-link-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+
+    .contact-link-row:hover { color: var(--accent); }
+    .contact-link-row:hover .contact-link-arrow { transform: translateX(4px); }
+
+    .contact-link-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .contact-link-handle {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .contact-link-arrow {
+      font-size: 1rem;
+      color: var(--muted);
+      transition: transform 0.2s;
+    }
+
+    /* Support row */
+    .support-strip {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .support-strip-text {
+      font-size: 0.95rem;
+      color: var(--ink2);
+      font-weight: 300;
+    }
+
+    .support-strip-text strong { font-weight: 600; color: var(--ink); }
+
+    .support-btns {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    }
+
+    .support-item { text-align: center; }
+
+    .support-item-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    .paypal-form { display: inline-flex; align-items: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-links-row {
+      display: flex; gap: 24px; flex-wrap: wrap;
+    }
+
+    .footer-links-row a {
+      font-size: 11px;
+      color: rgba(245,240,232,0.4);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-links-row a:hover { color: var(--accent2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      header { padding: 16px 24px; }
+      .header-nav { gap: 16px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 60px 24px; border-right: none; }
+      .manifesto { padding: 20px 24px; }
+      .about { grid-template-columns: 1fr; }
+      .about-sidebar { border-right: none; border-bottom: 1px solid var(--border); padding: 40px 24px; }
+      .about-content { padding: 40px 24px; }
+      .projects-section { padding: 60px 24px; }
+      .project-row { grid-template-columns: 48px 1fr; gap: 16px; }
+      .project-row-arrow { display: none; }
+      .contact { grid-template-columns: 1fr; }
+      .contact-right { border-left: none; border-top: 1px solid var(--border); padding: 40px 24px; }
+      .contact-left { padding: 60px 24px; }
+      .support-strip { padding: 32px 24px; }
+      footer { padding: 24px; flex-direction: column; text-align: center; }
+    }
+
+    /* Animate in on load */
+    .fade-in { animation: fadeIn 0.7s ease both; }
+    .fade-in-1 { animation-delay: 0.1s; }
+    .fade-in-2 { animation-delay: 0.2s; }
+    .fade-in-3 { animation-delay: 0.35s; }
+    .fade-in-4 { animation-delay: 0.5s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-    <img class="profile-img" src="images/foto-profilo.jpg" alt="Alessandro Memmola">
-    <div class="header-sponsor">
-        <a href="https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL" target="_blank" class="mini-btn">Sponsor ❤️</a>
-    </div>
-    <div class="header-content">
-        <h1>Alessandro Memmola</h1>
-        <p>Sviluppatore · Creatore di tool utili e progetti creativi</p>
-    </div>
+  <div class="header-name">Alessandro <em>Memmola</em></div>
+  <nav class="header-nav">
+    <a href="#about">Chi sono</a>
+    <a href="#progetti">Progetti</a>
+    <a href="https://memmolalabs.com" target="_blank">Memmola Labs®</a>
+    <a href="mailto:info@memmolalabs.com" class="nav-cta">Contatti</a>
+  </nav>
 </header>
 
-<div class="container">
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker fade-in">Sviluppatore Indipendente · </div>
+    <h1 class="hero-title fade-in fade-in-1">
+      Costruisco<br>cose<br><em>utili.</em>
+    </h1>
+    <p class="hero-bio fade-in fade-in-2">
+      Sono <strong>Alessandro Memmola</strong>, sviluppatore indipendente e fondatore di <strong>Memmola Labs®</strong>. Scrivo codice che risolve problemi reali — tool web gratuiti, widget embeddabili e app mobile per il mercato italiano ed estero.
+    </p>
+    <div class="hero-actions fade-in fade-in-3">
+      <a href="https://memmolalabs.com" target="_blank" class="btn-solid">Visita Memmola Labs® →</a>
+      <a href="#about" class="btn-ghost">Chi sono</a>
+    </div>
+    <div class="hero-social fade-in fade-in-4"> 
+      <span class="social-label">Trovami su</span>
+      <a href="https://github.com/alessandromemmola" target="_blank" class="social-link">GitHub</a>
+      <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/" target="_blank" class="social-link">LinkedIn</a>
+      <a href="https://x.com/almedeveloper" target="_blank" class="social-link">X</a>
+      <a href="https://www.producthunt.com/@alessandromemmola" target="_blank" class="social-link">Product Hunt</a>
+    </div>
+  </div>
 
-    <section>
-        <h2>Chi sono</h2>
-        <p>
-            Ciao! Sono Alessandro Memmola, appassionato di sviluppo web/app e creazione di progetti che semplificano o divertono la vita quotidiana.<br>
-            AskingStars è stato il primo, ma qui trovi tutto il mio percorso, i lavori in corso e i contatti per collaborazioni.
-        </p>
-    </section>
-
-    <section>
-        <h2>Memmola Labs Progetti</h2>
-        <div class="projects">
-            <div class="card">
-                <h3>AskingStars</h3>
-                <p>Oroscopo interattivo e ironico: chiedi alle stelle o alla cartomante risposte divertenti e personalizzate.</p>
-                <a href="https://askingstars.com" class="btn" target="_blank">Visita il sito</a>
-                <h3 style="margin-top:24px;">AskingStars-Widget</h3>
-                <p>Il widget embeddabile dell'oroscopo interattivo e ironico. Provalo subito nel tuo sito.</p>
-                <a href="https://askingstars.com/widget-demo.html" class="btn" target="_blank">Vai al widget</a>
-            </div>
-            <div class="card">
-                <h3>Reindexme</h3>
-                <p>Hai aggiornato il tuo profilo LinkedIn ma i motori di ricerca mostrano ancora la vecchia posizione? Questo tool invia segnali di re-indicizzazione per accelerare l'aggiornamento.</p>
-                <a href="https://reindexme.com" class="btn" target="_blank">Visita il sito</a>
-                <h3 style="margin-top:24px;">Reindexme-Widget</h3>
-                <p>Il widget embeddabile del tool che invia segnali di re-indicizzazione. Provalo subito nel tuo sito.</p>
-                <a href="https://reindexme.com/widget-demo.html" class="btn" target="_blank">Vai al widget</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="support">
-        <h2>Supportami</h2>
-        <p>Se i miei progetti ti piacciono o ti sono utili, un piccolo supporto mi aiuta a crearne altri!</p>
-
-        <div class="support-buttons">
-            <div class="support-row">
-                <!-- GitHub Sponsors button -->
-                <div>
-                    <iframe src="https://github.com/sponsors/alessandromemmola/button" title="Sponsor alessandromemmola" height="32" width="114" style="border:0;border-radius:6px;display:block;"></iframe>
-                    <p class="support-label">GitHub Sponsors</p>
-                </div>
-                <!-- PayPal donate button -->
-                <div>
-                    <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal-form">
-                        <input type="hidden" name="hosted_button_id" value="BDKSZVWFYY5ZL" />
-                        <input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Dona con PayPal" style="height:32px;" />
-                        <img alt="" border="0" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1" />
-                    </form>
-                    <p class="support-label">PayPal</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+  <div class="hero-right">
+    <div class="hero-photo-placeholder">
+      <img src="images/foto-profilo.jpg" alt="Alessandro Memmola" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <span class="photo-fallback" style="display:none;">AM</span>
+    </div>
+    <div class="hero-right-caption">
+      <strong>Alessandro Memmola</strong>
+      Sviluppatore · Fondatore Memmola Labs®<br>
+      Italia · Dal 2025
+    </div>
+  </div>
 </div>
 
-<footer>
-    <p>© 2026 Alessandro Memmola ·
-       Tutti i diritti riservati | Nessun tracciamento personale o cookie di profilazione
-       <a href="/licenza.html" target="_blank" style="color:#8b949e; text-decoration:none; font-size:0.95em;" title="Leggi la licenza d'uso">📜</a> ·
-       <a href="mailto:info@alessandromemmola.com">info@alessandromemmola.com</a> ·
-       <a href="https://github.com/alessandromemmola" target="_blank">GitHub</a> ·
-       <a href="https://www.producthunt.com/@alessandromemmola">Product Hunt</a> ·
-       <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/" target="_blank">LinkedIn</a> ·
-       <a href="https://x.com/MemmolaLabs" target="_blank">X</a>
+<!-- MARQUEE STRIP -->
+<div class="manifesto" aria-hidden="true">
+  <span class="manifesto-label">Filosofia</span>
+  <div style="overflow:hidden;flex:1;">
+    <div class="manifesto-text">
+      Costruire per risolvere, non per impressionare &nbsp;·&nbsp; Tool gratuiti, zero tracking &nbsp;·&nbsp; Codice pulito, prodotti utili &nbsp;·&nbsp; Indipendente per scelta &nbsp;·&nbsp; Costruire per risolvere, non per impressionare &nbsp;·&nbsp; Tool gratuiti, zero tracking &nbsp;·&nbsp; Codice pulito, prodotti utili &nbsp;·&nbsp; Indipendente per scelta &nbsp;·&nbsp;
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+  <div class="about-sidebar">
+    <div class="about-sidebar-num">01</div>
+    <div class="about-sidebar-label">Chi sono</div>
+  </div>
+  <div class="about-content">
+    <h2>Sviluppatore<br><em>dal garage.</em><br>Sul serio.</h2>
+    <p>
+      Ho iniziato a costruire tool perché ne avevo bisogno io per primo. Ho aggiornato il mio profilo LinkedIn e Google continuava a mostrare la posizione vecchia da settimane — così ho scritto <strong>Reindexme</strong>. Ho visto quanto i progetti semplici possano diventare qualcosa di utile per altri.
     </p>
-    <p class="footer-trademark">Memmola Labs® è un marchio di Alessandro Memmola</p>
+    <p>
+      Lavoro su <strong>Windows 10</strong>, gestisco tutto in autonomia — dal codice alla pubblicazione sugli store. Sono appassionato di Flutter per le app mobile e di vanilla HTML/CSS/JS per i tool web. Niente framework pesanti, niente bloat.
+    </p>
+    <p>
+      Ho fondato <strong>Memmola Labs®</strong> come contenitore per tutti i miei progetti: un piccolo studio indipendente con l'obiettivo di costruire cose gratuite, utili e senza raccolta di dati.
+    </p>
+    <div class="skills">
+      <span class="skill-chip">Flutter · Dart</span>
+      <span class="skill-chip">HTML / CSS / JS</span>
+      <span class="skill-chip">Android</span>
+      <span class="skill-chip">Google Play</span>
+      <span class="skill-chip">GitHub Pages</span>
+      <span class="skill-chip">Vercel</span>
+      <span class="skill-chip">SEO</span>
+      <span class="skill-chip">Product Hunt</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="projects-section" id="progetti">
+  <div class="section-header">
+    <h2>Progetti</h2>
+    <a href="https://memmolalabs.com" target="_blank" class="section-header-link">Tutti i progetti su Memmola Labs® →</a>
+  </div>
+
+  <div class="project-list">
+
+    <a href="https://reindexme.com" target="_blank" class="project-row">
+      <div class="project-row-num">01</div>
+      <div class="project-row-body">
+        <div class="project-row-tag">Web Tool · SEO <span class="status-live" style="margin-left:8px;">Live</span></div>
+        <div class="project-row-name">Reindexme</div>
+        <div class="project-row-desc">Invia segnali di re-indicizzazione a Bing, Yandex e Google dopo aver aggiornato il profilo LinkedIn. Gratuito, senza account, senza dati raccolti.</div>
+      </div>
+      <div class="project-row-arrow">→</div>
+    </a>
+
+    <a href="https://askingstars.com" target="_blank" class="project-row">
+      <div class="project-row-num">02</div>
+      <div class="project-row-body">
+        <div class="project-row-tag">Web App · Multilingua <span class="status-live" style="margin-left:8px;">Live</span></div>
+        <div class="project-row-name">AskingStars</div>
+        <div class="project-row-desc">Oroscopo interattivo e ironico: chiedi alle stelle o alla cartomante. Il primo progetto Memmola Labs, disponibile in 6 lingue con widget embeddabile.</div>
+      </div>
+      <div class="project-row-arrow">→</div>
+    </a>
+
+    <a href="https://play.google.com/store/apps/details?id=com.memmolalabs.immobit" target="_blank" class="project-row">
+      <div class="project-row-num">03</div>
+      <div class="project-row-body">
+        <div class="project-row-tag">Android App · Flutter <span class="status-live" style="margin-left:8px;">Live</span></div>
+        <div class="project-row-name">ImmoBit</div>
+        <div class="project-row-desc">App per la valutazione immobiliare italiana ed estera. Stima rapida e professionale degli immobili per agenti e privati. Disponibile su Google Play.</div>
+      </div>
+      <div class="project-row-arrow">→</div>
+    </a>
+
+    <a href="https://play.google.com/store/apps/details?id=com.memmolalabs.autobit" target="_blank" class="project-row">
+      <div class="project-row-num">04</div>
+      <div class="project-row-body">
+        <div class="project-row-tag">Android App · Flutter <span class="status-live" style="margin-left:8px;">Live</span></div>
+        <div class="project-row-name">AutoBit</div>
+        <div class="project-row-desc">Companion di ImmoBit per la valutazione veicoli. Stessa architettura, stesso approccio — strumento pratico per il mercato italiano ed estero.</div>
+      </div>
+      <div class="project-row-arrow">→</div>
+    </a>
+
+    <div class="project-row" style="cursor:default;">
+      <div class="project-row-num">05</div>
+      <div class="project-row-body">
+        <div class="project-row-tag">In arrivo <span class="status-soon" style="margin-left:8px;">Prossimamente</span></div>
+        <div class="project-row-name" style="color:var(--muted);">Prossimo progetto</div>
+        <div class="project-row-desc">Seguimi su Memmola Labs® o X per scoprire i prossimi tool in sviluppo.</div>
+      </div>
+      <div class="project-row-arrow" style="opacity:0.2;">→</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact" id="contatti">
+  <div class="contact-left">
+    <h2>Parliamo<br>di <em>idee.</em></h2>
+    <p>Collaborazioni, partnership, feedback sui tool o solo una chiacchierata tecnica — scrivi pure.</p>
+    <a href="mailto:info@memmolalabs.com" class="contact-email">info@memmolalabs.com →</a>
+  </div>
+  <div class="contact-right">
+    <h3>Trovami anche qui</h3>
+    <div class="contact-links">
+      <a href="https://memmolalabs.com" target="_blank" class="contact-link-row">
+        <div>
+          <div class="contact-link-name">Memmola Labs®</div>
+          <div class="contact-link-handle">memmolalabs.com</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://github.com/alessandromemmola" target="_blank" class="contact-link-row">
+        <div>
+          <div class="contact-link-name">GitHub</div>
+          <div class="contact-link-handle">@alessandromemmola</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/" target="_blank" class="contact-link-row">
+        <div>
+          <div class="contact-link-name">LinkedIn</div>
+          <div class="contact-link-handle">Alessandro Memmola</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://x.com/almedeveloper" target="_blank" class="contact-link-row">
+        <div>
+          <div class="contact-link-name">X (Twitter)</div>
+          <div class="contact-link-handle">@almedeveloper</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.producthunt.com/@alessandromemmola" target="_blank" class="contact-link-row">
+        <div>
+          <div class="contact-link-name">Product Hunt</div>
+          <div class="contact-link-handle">@alessandromemmola</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPORT STRIP -->
+<div class="support-strip">
+  <div class="support-strip-text">
+    <strong>I tool sono e resteranno gratuiti.</strong><br>
+    Se ti sono utili, un supporto mi aiuta a costruirne altri.
+  </div>
+  <div class="support-btns">
+    <div class="support-item">
+      <iframe src="https://github.com/sponsors/alessandromemmola/button" title="Sponsor alessandromemmola" height="32" width="114" style="border:0;border-radius:6px;display:block;"></iframe>
+      <p class="support-item-label">GitHub Sponsors</p>
+    </div>
+    <div class="support-item">
+      <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal-form">
+        <input type="hidden" name="hosted_button_id" value="BDKSZVWFYY5ZL" />
+        <input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal" alt="Dona con PayPal" style="height:32px;" />
+        <img alt="" border="0" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1" />
+      </form>
+      <p class="support-item-label">PayPal</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">
+    © 2026 Alessandro Memmola · Memmola Labs® · Tutti i diritti riservati · Nessun cookie di profilazione
+  </div>
+  <div class="footer-links-row">
+    <a href="/licenza.html">Licenza</a>
+    <a href="https://memmolalabs.com" target="_blank">Memmola Labs®</a>
+    <a href="mailto:info@memmolalabs.com">info@memmolalabs.com</a>
+  </div>
 </footer>
 
 </body>
