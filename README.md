@@ -1,30 +1,11 @@
-# Memmola Labs® di Alessandro Memmola – Sviluppatore & Creatore
+# Alessandro Memmola – Sviluppatore & Creatore
 
-Portfolio personale, vetrina di progetti web, tool utili e idee creative.
-
-## Progetti principali
-
-- **[AskingStars](https://askingstars.com)**  
-  Oroscopo interattivo e ironico: chiedi alle stelle o alla cartomante risposte divertenti e personalizzate.  
-  Include widget embeddabile gratuito → [widget-demo](https://askingstars.com/widget-demo.html)
-
-- **[Reindexme](https://reindexme.com)**  
-  Tool per inviare segnali di re-indicizzazione ai motori di ricerca dopo aggiornamento profilo LinkedIn.  
-  Include widget embeddabile gratuito → [widget-demo](https://reindexme.com/widget-demo.html)
-
-## Tecnologie usate
-
-- HTML / CSS puro (no framework pesanti)
-- JavaScript vanilla
-- Vercel per hosting e deploy automatico
+Portfolio personale, vetrina di progetti web, tool utili e idee creative su memmolalabs.com.
 
 ## Contatti & Social
 
-- 💼 LinkedIn: [Alessandro Memmola](https://www.linkedin.com/in/alessandro-memmola-233868372/)
-- 🐦 X: [@MemmolaLabs](https://x.com/MemmolaLabs)
-- 🐙 GitHub: [alessandromemmola](https://github.com/alessandromemmola)
-- 🚀 Product Hunt: [@alessandromemmola](https://www.producthunt.com/@alessandromemmola)
 - 📧 Email: info@alessandromemmola.com
+- 💻 Web : alessandromemmola.com
 
 ## Supporta i miei progetti
 
